@@ -1,0 +1,8 @@
+- name: Start ETCD servers
+  hosts: etcd_hosts
+  sudo: True
+  vars:
+    yaas_root: /opt/yaas
+  tasks:
+    - name: start ETCD servers
+      shell: source {{ yaas_root }}/profile.sh; start-etcd-local.sh
