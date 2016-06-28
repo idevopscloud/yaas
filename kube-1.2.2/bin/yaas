@@ -166,7 +166,7 @@ def cmd_nodes(argv):
         if pod_num_column_max_len < len(str(node.pod_num)):
             pod_num_column_max_len = len(str(node.pod_num))
 
-        mem_str = "{:.0f}M/{:.0f}M".format(node.mem_limit_used, node.capacity.memory)
+        mem_str = "{:.0f}M/{:.0f}M".format(node.mem_request_used, node.capacity.memory)
         max_mem_column.append(mem_str)
         if max_mem_column_max_len < len(mem_str):
             max_mem_column_max_len = len(mem_str)
