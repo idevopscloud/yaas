@@ -61,9 +61,12 @@ class ReosurcePodContainerList(Resource):
             cpu_percentage = self.parse_cpu(node.num_cores, container)
             cpu_stats['cpu_percentage'] = cpu_percentage
 
+            filesystem_stats = container['stats'][-1]['filesystem']
+
             container['stats'] = {
                 'memory': memory_stats,
-                'cpu': cpu_stats
+                'cpu': cpu_stats,
+                'filesystem': filesystem_stats
             }
             pod_name = container['spec']['labels']['io.kubernetes.pod.name']
             namespace = container['spec']['labels']['io.kubernetes.pod.namespace']
